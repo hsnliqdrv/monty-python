@@ -165,17 +165,65 @@ int process(stack_t** ptr, char *cmd)
 	char **arr = split(cmd, &c);
 
 	if (equals(arr[0], "PUSH"))
-		res = push(ptr, atoi(arr[1]));
+	{
+		if (c != 2)
+		{
+			printf("PUSH: wrong usage\n");
+			res = 1;
+		}
+		else
+			res = push(ptr, atoi(arr[1]));
+	}
 	else if (equals(arr[0], "PALL"))
-                res = pall(ptr);
+	{
+                if (c != 1)
+		{
+                        printf("PALL: wrong usage\n");
+			res = 1;
+		}
+		else
+                	res = pall(ptr);
+	}
 	else if (equals(arr[0], "PINT"))
-                res = pint(ptr, atoi(arr[1]));
+	{
+                if (c != 2)
+		{
+                        printf("PINT: wrong usage\n");
+			res = 1;
+		}
+		else
+                	res = pint(ptr, atoi(arr[1]));
+	}
 	else if (equals(arr[0], "POP"))
-                res = pop(ptr);
+	{
+                if (c != 1)
+		{
+                        printf("POP: wrong usage\n");
+			res = 1;
+		}
+		else
+                	res = pop(ptr);
+	}
 	else if (equals(arr[0], "SWAP"))
-                res = swap(ptr, atoi(arr[1]), atoi(arr[2]));
+	{
+                if (c != 3)
+		{
+                        printf("SWAP: wrong usage\n");
+			res = 1;
+		}
+		else
+                	res = swap(ptr, atoi(arr[1]), atoi(arr[2]));
+	}
 	else if (equals(arr[0], "ADD"))
-                res = add(ptr, atoi(arr[1]));
+	{
+                if (c != 2)
+		{
+                        printf("ADD: wrong usage\n");
+			res = 1;
+		}
+		else
+			res = add(ptr, atoi(arr[1]));
+	}
 	else
 	{
 		printf("\"%s\" is not a command\n", arr[0]);
